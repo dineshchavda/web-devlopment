@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>again and again </title>
+	<style>
+		header{
+
+			color:blue;
+			height:100PX
+		}
+		</style>
+</head>
+<body>
+		<input type="text" id="v">
+	<button onclick="sbtn()">submit</button>
+		<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyBw5DSJjQbJJW84Ob-Du-OckxjNSZfoa-w",
+          authDomain: "test-12eea.firebaseapp.com",
+          databaseURL: "https://test-12eea.firebaseio.com",
+          projectId: "test-12eea",
+          storageBucket: "test-12eea.appspot.com",
+          messagingSenderId: "1083029090519"
+        };
+        firebase.initializeApp(config);
+      </script>
+      <button onclick="get()">getdata</button>
+      <script type="text/javascript">
+      	function sbtn(){
+      		var firebased=firebase.database().ref();
+      		var d=document.getElementById('v').value;
+      		firebased.push().set(d);
+      		document.getElementById('v').value="";
+      	}
+      	function get()
+      	{
+      		var firebased=firebase.database().ref();
+      		var d;
+      		firebased.pop().set(d);
+      		alert(d)
+
+      	}
+      </script>
+</body>
+</html>

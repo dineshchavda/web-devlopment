@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Complain</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<style type="text/css">
+		img {
+			position: absolute;
+		}
+
+		#p {
+			position: relative;
+			margin-top: 75px;
+			border: 4px solid black;
+			margin-right:750px;
+			margin-left: 100px; 
+			background-color: transparent;
+			color: blue; 
+			opacity: 0.9;
+		}
+
+		#p p {
+			margin-left: 85px;
+		}
+
+		#p button {
+			margin-left: 85px;
+		}
+
+		.mdl-textfield {
+			margin-left: 85px;
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title" style="font-size: 30px;">Online Complain Site</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  
+  <div>
+  	<img style="height: 608px; width: 1350px; opacity: 0.5;" src="train3.jpg">
+  	<div id="p">
+  		<br><br><p>Username : <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    						  <input class="mdl-textfield__input" type="text" id="sample3">
+                              <label class="mdl-textfield__label" for="sample3">Username...</label></div><br><br>
+                    <p>Password : </p><div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    						  <input class="mdl-textfield__input" type="text" id="sample3">
+                              <label class="mdl-textfield__label" for="sample3">Password...</label></div></p><br>
+  		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">LogIn</button>
+  		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">SignUp</button><br><br><br>
+    </div>    
+  	</div>
+  </div>
+  
+</div>
+
+	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyBw5DSJjQbJJW84Ob-Du-OckxjNSZfoa-w",
+          authDomain: "test-12eea.firebaseapp.com",
+          databaseURL: "https://test-12eea.firebaseio.com",
+          projectId: "test-12eea",
+          storageBucket: "test-12eea.appspot.com",
+          messagingSenderId: "1083029090519"
+        };
+        firebase.initializeApp(config);
+      </script>
+
+<script type="text/javascript">
+	
+	var user = firebase.auth();		
+	
+	function sbtn() {
+		var usr = document.getElementById('un').value;
+		var pwd = document.getElementById('pw').value;			
+		user.createUserWithEmailAndPassword(usr,pwd);
+	}
+
+	function login() {
+		var usr = document.getElementById('un').value;
+		var pwd = document.getElementById('pw').value;
+		var fb = user.signInWithEmailAndPassword(usr,pwd);
+		console.log(fb);
+	}
+	
+</script>
+
+</body>
+</html>
